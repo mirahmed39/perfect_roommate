@@ -6,7 +6,7 @@ The content below is an example project proposal / requirements document. Replac
 
 ## Overview
 
-### Breif Project Description.
+## Breif Project Description.
 
 First year in college and dorming? Well, you better have roommate(s) with similar interests. Otherwise, it is going to be another level of stress /anxiety added to your newly started academic career. That is where you can count on Perfect Roommate.
 
@@ -18,7 +18,7 @@ Now that you have a like minded person with you, tackling your academic career w
 
 (___TODO__: a description of your application's data and their relationships to each other_) 
 
-The application will store Users, Lists and Items
+The application will store Users, list of questions for the user to answer upon singing up and a list that has a user, questions, user's answer to those questions and a rank to calculate the matches with other users.
 
 * users can have multiple lists (via references)
 * each list can have multiple items (by embedding)
