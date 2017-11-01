@@ -1,17 +1,18 @@
 The content below is an example project proposal / requirements document. Replace the text below the lines marked "__TODO__" with details specific to your project. Remove the "TODO" lines.
 
-(___TODO__: your project name_)
+(___TODO__: My project name_)
 
-# Shoppy Shoperson 
+# Perfect Roommate
 
 ## Overview
 
-(___TODO__: a brief one or two paragraph, high-level description of your project_)
+### Breif Project Description.
 
-Remembering what to buy at the grocery store is waaaaay too difficult. Also, shopping for groceries when you're hungry leads to regrettable purchases. Sooo... that's where Shoppy Shoperson comes in!
+First year in college and dorming? Well, you better have roommate(s) with similar interests. Otherwise, it is going to be another level of stress /anxiety added to your newly started academic career. That is where you can count on Perfect Roommate.
 
-Shoppy Shoperson is a web app that will allow users to keep track of multiple grocery lists. Users can register and login. Once they're logged in, they can create or view their grocery list. For every list that they have, they can add items to the list or cross off items.
+Perfect Roommate is a web applcation where you will sign up for an account. Upon signing up, it will also ask you some additional questions. Then there the magic happens!!! It will find you roommates based on similar interests.
 
+Now that you have a like minded person with you, tackling your academic career would be much more exciting and easier.  
 
 ## Data Model
 
