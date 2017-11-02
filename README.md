@@ -109,7 +109,7 @@ An Example of **UserInfo**:
 
 (___TODO__: draw out a site map that shows how pages are related to each other_)
 
-Here's a [complex example from wikipedia](https://upload.wikimedia.org/wikipedia/commons/2/20/Sitemap_google.jpg), but you can create one without the screenshots, drop shadows, etc. ... just names of pages and where they flow to.
+The homepage is sign up/login page (**/login**). Upon singing up or logging in, the user will be asked a series of qiestions in the **/questionnaires** page. After the user answers all the questions, the web application will use its internal mechanism to calculate the best matches for roommate(s) and display them on the **/matches** page. The user can add however many roommates he/she wants and can later see the his/her likes on the **/likes** page. If anytime the user wants to change answer(s) to the questionnaires, it can be done by accessing the **/changequestion** page. The user can also he his profile and summary of things (to be added as the project progresses) on the **/profile** page. From this page, the user can change his/her profile picture(this functionalilty is to be added only if time allows). Finally from the **/settings** page, the use can change his/her login credentials (again, this will be added only if time allows). 
 
 ## User Stories or Use Cases
 
@@ -117,10 +117,14 @@ Here's a [complex example from wikipedia](https://upload.wikimedia.org/wikipedia
 
 1. as non-registered user, I can register a new account with the site
 2. as a user, I can log in to the site
-3. as a user, I can create a new grocery list
-4. as a user, I can view all of the grocery lists I've created in a single list
-5. as a user, I can add items to an existing grocery list
-6. as a user, I can cross off items in an existing grocery list
+3. as a user, I can have access to the questionnaires and answer them
+4. as a user, I can view all the potential roommate(s) that matches with me.
+5. as a user, I can like any potential roommate.
+6. as a user, I can see the potential roommate(s) that I liked.
+7. as a user, I can dislike a roomate from my likes.
+8. as a user, I can make changes to the answers of the questionnaires.
+9. as a user, I can view my profile and make change my profile picture.
+10. as a user, I can change my login credentials.
 
 ## Research Topics
 
@@ -128,16 +132,19 @@ Here's a [complex example from wikipedia](https://upload.wikimedia.org/wikipedia
 
 * (5 points) Integrate user authentication
     * I'm going to be using passport for user authentication
-    * And account has been made for testing; I'll email you the password
-    * see <code>cs.nyu.edu/~jversoza/ait-final/register</code> for register page
-    * see <code>cs.nyu.edu/~jversoza/ait-final/login</code> for login page
-* (4 points) Perform client side form validation using a JavaScript library
-    * see <code>cs.nyu.edu/~jversoza/ait-final/my-form</code>
-    * if you put in a number that's greater than 5, an error message will appear in the dom
-* (5 points) vue.js
-    * used vue.js as the frontend framework; it's a challenging library to learn, so I've assigned it 5 points
+    * user authentication is the key factor of this web applcation.
+    * without user authentication, the user cannot experience the functionalilies of the application.
+    * may add registration with third party app only if time allows.
+* (4 points) Gulp Task Runner
+    * to minify and concatenate client side javascript and css files. (2 points).
+    * using a CSS preprocessor called **less** (2 points) and run it using gulp.
+    * never used a task runner, this seems like a good way to get started.
+* (2 points) CSS framework (Bootsrap)
+    * use the latest version of bootsrap to minimize the time to style webpages.
+    * Have experience using this framework.
+    * I have checked sample websites that used bootsrap and they look elegant. I want to make mine look elegant as well without writing much css.
 
-10 points total out of 8 required points (___TODO__: addtional points will __not__ count for extra credit_)
+11 points total out of 8 required points (___TODO__: addtional points will __not__ count for extra credit_)
 
 
 ## [Link to Initial Main Project File](app.js) 
@@ -149,4 +156,7 @@ Here's a [complex example from wikipedia](https://upload.wikimedia.org/wikipedia
 (___TODO__: list any tutorials/references/etc. that you've based your code off of_)
 
 1. [passport.js authentication docs](http://passportjs.org/docs) - (add link to source code that was based on this)
-2. [tutorial on vue.js](https://vuejs.org/v2/guide/) - (add link to source code that was based on this)
+2. [tutorial on bootstrap](https://v4-alpha.getbootstrap.com/getting-started/introduction/) - (add link to source code that was based on this)
+3. [tutorial on less](http://lesscss.org/) - (add link to source code that was based on this)
+4. [tutorial on Grunt to minify javascript](https://github.com/gruntjs/grunt-contrib-uglify) - (add link to source code that was based on this)
+5. [tutorial on Grunt to complie .less files](https://github.com/gruntjs/grunt-contrib-less) - (add link to source code that was based on this)
