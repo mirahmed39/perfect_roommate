@@ -77,17 +77,33 @@ An Example of **UserInfo**:
 
 (___TODO__: wireframes for all of the pages on your site; they can be as simple as photos of drawings or you can use a tool like Balsamiq, Omnigraffle, etc._)
 
-/list/create - page for creating a new shopping list
+/login - page for login or sign up
 
-![list create](documentation/list-create.png)
+![roommate](documentation/sign-in.PNG)
 
-/list - page for showing all shopping lists
+/questionnaires - page for showing all the questions
 
-![list](documentation/list.png)
+![roommate](documentation/questionnaires.PNG)
 
-/list/slug - page for showing specific shopping list
+/matches - page for showing all the macthes found
 
-![list](documentation/list-slug.png)
+![roommate](documentation/matches.PNG)
+
+/likes - page for showing roommate(s) a user liked
+
+![roommate](documentation/likes.PNG)
+
+/profile - page for showing a user's profile
+
+![roommate](documentation/profile.PNG)
+
+/changequestion - page for chnaging answer to questionnaires
+
+![roommate](documentation/make-changes.PNG)
+
+/settings - page for account settings
+
+![roommate](documentation/settings.PNG)
 
 ## Site map
 
