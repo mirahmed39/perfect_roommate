@@ -18,7 +18,7 @@ Now that you have a like minded person with you, tackling your academic career w
 
 (___TODO__: a description of your application's data and their relationships to each other_) 
 
-The application will store **Users**, list of questions(we will call it **Questionnaire**) for the user to answer upon singing up and a list (**we will call it *userInfo*) that has a user reference, list of the questionnaires, the user's answers to the questionnaires and a *rank* to calculate the matches with other users.
+The application will store **Users**, list of questions(we will call it **Questionnaire**) for the user to answer upon singing up and a list (we will call it **UserInfo**) that has a user reference, list of the questionnaires, the user's answers to the questionnaires and a *rank* to calculate the matches with other users.
 
 ### User 
 - a user should have login info (first name, last name, email, gender, bithday, password hash etc.)
