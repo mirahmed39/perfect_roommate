@@ -10,7 +10,7 @@ The content below is an example project proposal / requirements document. Replac
 
 First year in college and dorming? Well, you better have roommate(s) with similar interests. Otherwise, it is going to be another level of stress /anxiety added to your newly started academic career. That is where you can count on Perfect Roommate.
 
-Perfect Roommate is a web applcation where you will sign up for an account. Upon signing up, it will also ask you some additional questions. Then there the magic happens!!! It will find you roommates based on similar interests.
+Perfect Roommate is a web applcation where you will sign up for an account. Upon signing up, it will ask you some additional questions. Then there the magic happens!!! It will find you roommates based on similar interests.
 
 Now that you have a like minded person with you, tackling your academic career would be much more exciting and easier.  
 
@@ -18,37 +18,56 @@ Now that you have a like minded person with you, tackling your academic career w
 
 (___TODO__: a description of your application's data and their relationships to each other_) 
 
-The application will store Users, list of questions for the user to answer upon singing up and a list that has a user, questions, user's answer to those questions and a rank to calculate the matches with other users.
+The application will store **Users**, list of questions(we will call it **Questionnaire**) for the user to answer upon singing up and a list (**we will call it *userInfo*) that has a user reference, list of the questionnaires, the user's answers to the questionnaires and a *rank* to calculate the matches with other users.
 
-* users can have multiple lists (via references)
-* each list can have multiple items (by embedding)
+### User 
+- a user should have login info (first name, last name, email, gender, bithday, password hash etc.)
+- a list of users(**matches**) with similar interests (could be empty).
+
+### Questionnaire
+- contains list of questions to be asked to the user.
+
+### UserInfo
+- contains list of users.
+- each user's answers to the questionnaires.
+- a rank for the user to calculate matches.
+
 
 (___TODO__: sample documents_)
 
-An Example User:
+An Example of a **User**:
 
 ```javascript
 {
-  username: "shannonshopper",
-  hash: // a password hash,
-  lists: // an array of references to List documents
+    firstName: "Mir",
+    lastName: "Ahmed",
+    username: "mirahmed65(has to be unique)",
+    hash: // a password hash,
+    matches: [{'a user'}, {'another user'}]// an array of refereces to other like minded users.
 }
 ```
 
-An Example List with Embedded Items:
+An Example of **Questionnaire**:
 
 ```javascript
 {
-  user: // a reference to a User object
-  name: "Breakfast foods",
-  items: [
-    { name: "pancakes", quantity: "9876", checked: false},
-    { name: "ramen", quantity: "2", checked: true},
-  ],
-  createdAt: // timestamp
+    questionnaire: {questions: [
+        'How likely you are to cook food at home?',
+        'How likey you are to study at library rather than in your dorm?',
+        '..........'
+        ]}
 }
 ```
 
+An Example of **UserInfo**:
+
+```javascript
+{
+    user: // a reference to a user
+    answers: [5, 6, 4, 5] // the answers to the questions(questions are based on rate of 1 to 5)
+    rank: // a rank assigned to the user based on the answers.
+}
+```
 
 ## [Link to Commented First Draft Schema](db.js) 
 
