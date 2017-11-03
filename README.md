@@ -27,7 +27,7 @@ The application will store **Users**, list of questions(we will call it **Questi
 ### Questionnaire
 - contains list of questions to be asked to the user.
 
-### UserInfo
+### UserDetail
 - contains list of users.
 - each user's answers to the questionnaires.
 - a rank for the user to calculate matches.
@@ -43,7 +43,7 @@ An Example of a **User**:
     lastName: "Ahmed",
     username: "mirahmed65(has to be unique)",
     hash: // a password hash,
-    matches: [{'a user'}, {'another user'}]// an array of refereces to other like minded users.
+    matches: [User]// an array of refereces to other users.
 }
 ```
 
@@ -51,15 +51,15 @@ An Example of **Questionnaire**:
 
 ```javascript
 {
-    questionnaire: {questions: [
+    questionnaire: [
         'How likely you are to cook food at home?',
         'How likey you are to study at library rather than in your dorm?',
         '..........'
-        ]}
+        ]
 }
 ```
 
-An Example of **UserInfo**:
+An Example of **UserDetail**:
 
 ```javascript
 {
