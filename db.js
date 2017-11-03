@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 const SALT_WORK_FACTOR = 10;
 
 // schemas
-const UserSchema = new Schema({
+const User = new Schema({
     firstName: {type: String, required: true},
     lastName: {type: String, required: true},
     username: {type: String, required: true},
@@ -14,7 +14,7 @@ const UserSchema = new Schema({
 });
 
 // following block of code upto UserSchema.methods is taken from mongodb website's password's authentication page.
-UserSchema.pre(save, function(next) {
+User.pre(save, function(next) {
     const user = this;
 
 // only hash the password if it has been modified (or is new)
@@ -35,18 +35,18 @@ UserSchema.pre(save, function(next) {
     });
 });
 
-UserSchema.methods.comparePassword = function(candidatePassword, cb) {
-    bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
+User.methods.comparePassword = function(candidatePassword, cb) {
+    bcrypt.compare(candidatePassword, this.passwordHash, function(err, isMatch) {
         if (err) return cb(err);
         cb(null, isMatch);
     });
 };
 
-const QuestionnaireSchema = new Schema({
+const Questionnaire = new Schema({
     questions: [String]
 });
 
-const UserDetailsSchema = new Schema({
+const UserDetails = new Schema({
     user: UserSchema,
     answers: [Number],
     rank: Number
@@ -54,9 +54,9 @@ const UserDetailsSchema = new Schema({
 
 
 // creating models out of Schemas.
-mongoose.model('User', UserSchema);
-mongoose.model('Questions', QuestionnaireSchema);
-mongoose.model('UserDetails', UserDetailsSchema);
+mongoose.model('User', User);
+mongoose.model('Questions', Questionnaire);
+mongoose.model('UserDetails', UserDetails);
 
 //connecting to the database.
 mongoose.connect('mongodb://localhost/perfectRoommate');
