@@ -1,20 +1,20 @@
 // db.js
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const bcrypt = require('bcrypt');
-const SALT_WORK_FACTOR = 10;
+//const bcrypt = require('bcrypt');
+//const SALT_WORK_FACTOR = 10;
 
 // schemas
-const User = new Schema({
+const userSchema = new Schema({
     firstName: {type: String, required: true},
     lastName: {type: String, required: true},
     username: {type: String, required: true},
     passwordHash : {type: String, required: true},
-    matches: [UserSchema]
+    matches: [userSchema]
 });
-
+/*
 // following block of code upto UserSchema.methods is taken from mongodb website's password's authentication page.
-User.pre(save, function(next) {
+userSchema.pre('save', function(next) {
     const user = this;
 
 // only hash the password if it has been modified (or is new)
@@ -41,22 +41,25 @@ User.methods.comparePassword = function(candidatePassword, cb) {
         cb(null, isMatch);
     });
 };
-
-const Questionnaire = new Schema({
+*/
+const questionnaireSchema = new Schema({
     questions: [String]
 });
 
-const UserDetails = new Schema({
-    user: UserSchema,
+const userDetailsScehma = new Schema({
+    user: userSchema,
     answers: [Number],
     rank: Number
 });
 
-
-// creating models out of Schemas.
-mongoose.model('User', User);
-mongoose.model('Questions', Questionnaire);
-mongoose.model('UserDetails', UserDetails);
-
+//const User = mongoose.model('User', userSchema);
 //connecting to the database.
 mongoose.connect('mongodb://localhost/perfectRoommate');
+
+
+// export the models to use them outside of this file.
+module.exports = {
+  User: mongoose.model('User', userSchema),
+  Questions: mongoose.model('Questions', questionnaireSchema),
+  UserDetails: ongoose.model('UserDetails', userDetailsScehma)
+};
