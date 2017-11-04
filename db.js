@@ -1,16 +1,18 @@
 // db.js
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-//const bcrypt = require('bcrypt');
+//const bcrypt = require('bcryptjs');
 //const SALT_WORK_FACTOR = 10;
 
 // schemas
 const userSchema = new Schema({
     firstName: {type: String, required: true},
     lastName: {type: String, required: true},
-    username: {type: String, required: true},
+    username: {type: String, required: true, unique: true},
+    email: String,
     passwordHash : {type: String, required: true},
-    matches: [userSchema]
+    gender: String,
+    matches: [String] // stores array of usernames.
 });
 /*
 // following block of code upto UserSchema.methods is taken from mongodb website's password's authentication page.
@@ -61,5 +63,5 @@ mongoose.connect('mongodb://localhost/perfectRoommate');
 module.exports = {
   User: mongoose.model('User', userSchema),
   Questions: mongoose.model('Questions', questionnaireSchema),
-  UserDetails: ongoose.model('UserDetails', userDetailsScehma)
+  UserDetails: mongoose.model('UserDetails', userDetailsScehma)
 };

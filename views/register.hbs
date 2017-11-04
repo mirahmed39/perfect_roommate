@@ -1,1 +1,42 @@
-<h1>This is settings page</h1>
+<h1>This is register page</h1>
+<form method="POST" action="/register">
+    <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name">
+
+        <label for="lastName">Last Name</label>
+        <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name">
+
+        <label for="userName">User Name</label>
+        <input type="text" class="form-control" id="userName" name="userName" placeholder="userame">
+
+        <label for="email">Email address</label>
+        <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+        </div>
+
+        <label>Gender:</label> <br>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="gender" id="male" value="male">
+                Male
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="gender" id="female" value="female">
+                Female
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="gender" id="none" value="none">
+                Prefer not to answer
+            </label>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-danger">Submit</button>
+</form>

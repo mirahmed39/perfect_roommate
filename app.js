@@ -34,12 +34,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // route middleware goes here.
 app.use('/', register);
-app.use('/changequestion', changequestion);
-app.use('/like', like);
-app.use('/login', login);
-app.use('/matches', matches);
-app.use('/profile', profile);
-app.use('/questionnaire', questionnaire);
-app.use('/settings', register);
+app.use('/', changequestion);
+app.use('/', like);
+app.use('/', login);
+app.use('/', matches);
+app.use('/', profile);
+app.use('/', questionnaire);
+app.use('/', register);
 
 app.listen(3000);
