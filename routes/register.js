@@ -1,7 +1,6 @@
-const mongoose = require('mongoose');
+//const mongoose = require('mongoose');
 const User = require('../db').User;
 const bcrypt = require('bcryptjs');
-const salt = bcrypt.genSaltSync(10);
 const express = require('express');
 const router = express.Router();
 
@@ -21,14 +20,20 @@ router.post('/register', function (req, res) {
     const email = req.body.email;
     const password = req.body.password;
     const gender = req.body.gender;
-    // hash the password using bcrypt and salt.
-    const passwordHash = bcrypt.hashSync(password, salt);
-    const user = new User({firstName: firstName, lastName: lastName, username: username, email: email,
-        passwordHash: passwordHash, gender: gender
-    });
-    user.save(function (err, user) {
-        if(err) throw  err;
-        res.redirect('/register');
+
+    // generate password hash with salt, create the user object and save it to the database.
+    bcrypt.genSalt(10, function(err, salt) {
+        bcrypt.hash(password, salt, function(err, hash) {
+            if (err) throw  err;
+            const user = new User({firstName: firstName, lastName: lastName, username: username, email: email,
+                passwordHash: hash, gender: gender
+            });
+            user.save(function (err, user) {
+                if(err) throw  err;
+                console.log("Successfully added user.");
+                res.redirect('/register');
+            });
+        });
     });
 });
 

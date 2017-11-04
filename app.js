@@ -26,9 +26,14 @@ const sessionOptions = {
     resave: false
 };
 app.use(session(sessionOptions));
+
+// view engine setup
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
+
+// static files setup
 app.use(express.static(publicPath));
+
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -42,4 +47,4 @@ app.use('/', profile);
 app.use('/', questionnaire);
 app.use('/', register);
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);

@@ -45,7 +45,7 @@ User.methods.comparePassword = function(candidatePassword, cb) {
 };
 */
 const questionnaireSchema = new Schema({
-    questions: [String]
+    question: String
 });
 
 const userDetailsScehma = new Schema({
@@ -62,6 +62,6 @@ mongoose.connect('mongodb://localhost/perfectRoommate');
 // export the models to use them outside of this file.
 module.exports = {
   User: mongoose.model('User', userSchema),
-  Questions: mongoose.model('Questions', questionnaireSchema),
+  Questionnaire: mongoose.model('Questionnaire', questionnaireSchema),
   UserDetails: mongoose.model('UserDetails', userDetailsScehma)
 };

@@ -1,1 +1,6 @@
 <h1>This is Questionnaires page</h1>
+<ul>
+    {{#each questions as |question|}}
+        <li>{{question.question}}</li>
+    {{/each}}
+</ul>
