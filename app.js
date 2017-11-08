@@ -1,12 +1,13 @@
 // app.js
 const express = require('express');
 const app = express();
+require('./db');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
-const db = require('./db');
 const path = require('path');
 const publicPath = path.resolve(__dirname, 'public');
+
 
 // getting the routes
 const changequestion = require('./routes/changequestion');
@@ -26,6 +27,12 @@ const sessionOptions = {
     resave: false
 };
 app.use(session(sessionOptions));
+
+// adding user into the context of every template
+app.use(function(req, res, next){
+    res.locals.user = req.user;
+    next();
+});
 
 // view engine setup
 app.set('view engine', 'hbs');
