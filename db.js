@@ -55,12 +55,31 @@ const User = mongoose.model('User', UserSchema);
 const Questionnaire = mongoose.model('Questionnaire', QuestionnaireSchema);
 const UserDetails = mongoose.model('UserDetails', UserDetailsSchema);
 
-//connecting to the database.
-mongoose.connect('mongodb://localhost/perfectRoommate');
-
 // export the models to use them outside of this file.
 module.exports = {
-  User: User,
-  Questionnaire: Questionnaire,
-  UserDetails: UserDetails
+    User: User,
+    Questionnaire: Questionnaire,
+    UserDetails: UserDetails
 };
+
+// is the environment variable, NODE_ENV, set to PRODUCTION?
+let dbconf;
+if (process.env.NODE_ENV === 'PRODUCTION') {
+    // if we're in PRODUCTION mode, then read the configration from a file
+    // use blocking file io to do this...
+    const fs = require('fs');
+    const path = require('path');
+    const fn = path.join(__dirname, 'config.json');
+    const data = fs.readFileSync(fn);
+
+    // our configuration file will be in json, so parse it and set the
+    // conenction string appropriately!
+    const conf = JSON.parse(data);
+    dbconf = conf.dbconf;
+} else {
+    // if we're not in PRODUCTION mode, then use
+    dbconf = 'mongodb://localhost/perfectRoommate';
+}
+
+//connecting to the database.
+mongoose.connect(dbconf);
