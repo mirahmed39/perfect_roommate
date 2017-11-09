@@ -25,12 +25,16 @@ router.post('/register', function (req, res) {
         gender: gender
     });
     user.save(function (err, user) {
-        if (err) throw err;
-        console.log('User Registered Successfully');
-        console.log('User', user);
-        const redirectUrlFormat = '/' + user.slug + '/questionnaire';
-        res.redirect(redirectUrlFormat);
-    })
+        if (err) {
+            const errorMessage = "Username is already taken, Try another one";
+            res.render('register', {errorMessage: errorMessage});
+        } else {
+            console.log('User Registered Successfully');
+            console.log('User', user);
+            const redirectUrlFormat = '/' + user.username + '/questionnaire';
+            res.redirect(redirectUrlFormat);
+        }
+    });
 });
 
 module.exports = router;

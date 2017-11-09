@@ -4,9 +4,25 @@
 </p>
 <h3>Questionnaire for {{username}}</h3>
 
-<form method="POST" action="/{{username}}/process-quesionnaire">
+<form method="POST" action="/{{username}}/process-questionnaire">
     {{#each questionnaire as |aQuestion|}}
         <p class="lead">{{aQuestion.question}}</p>
+
+        <input type="radio" name="question{{@index}}" id="question" value="1">
+        <label for="question">1</label>
+
+        <input type="radio" name="question{{@index}}" id="question" value="2">
+        <label for="question">2</label>
+
+        <input type="radio" name="question{{@index}}" id="question" value="3">
+        <label for="question">3</label>
+
+        <input type="radio" name="question{{@index}}" id="question" value="4">
+        <label for="question">4</label>
+
+        <input type="radio" name="question{{@index}}" id="question" value="5">
+        <label for="question">5</label>
     {{/each}}
+    <br>
     <button type="submit" class="btn btn-info">Submit Responses</button>
 </form>

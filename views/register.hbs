@@ -1,4 +1,10 @@
 <h1>This is register page</h1>
+
+{{#if errorMessage}}
+
+<div class="alert alert-danger">{{errorMessage}}</div>
+{{/if}}
+
 <form method="POST" action="/register">
     <div class="form-group">
         <label for="firstName">First Name</label>

@@ -1,1 +1,30 @@
-<h1>This is profile page</h1>
+<h1>Profile</h1>
+
+<!-- later on there should be a profile picture of the user-->
+<div class="container jumbotron">
+    <p class="lead">{{user.firstName}} {{user.lastName}}</p>
+    <p class="lead">username: {{user.username}}</p>
+    <p class="lead">Gender: {{user.gender}}</p>
+</div>
+
+<p class="lead">These are your responses to the questionnaires:</p>
+<div class="container jumbotron">
+    <p class="lead">These are the questions were asked.</p>
+    <ol>
+        <!-- loop through each questions and the the users answer-->
+        {{#each questionnaire as |aQuestion|}}
+            <li class="lead">{{aQuestion.question}}</li>
+        {{/each}}
+    </ol>
+
+    <p class="lead">These are your answers.</p>
+    <ol>
+        {{#each userResponses as |aResponse|}}
+            <li class="lead"> You answered: <b>{{aResponse}}</b></li>
+        {{/each}}
+    </ol>
+    <p class="lead">Wanna Change Your answers?</p>
+    <button class="btn btn-success"><a href="#">Yes, please</a></button>
+</div>
+
+

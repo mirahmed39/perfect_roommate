@@ -43,7 +43,7 @@ const QuestionnaireSchema = new Schema({
 });
 
 const UserDetailsSchema = new Schema({
-    userSlug: {type: String, required:true},
+    username: {type: String, required:true},
     answers: [Number],
     rank: Number
 });
