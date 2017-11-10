@@ -15,6 +15,7 @@ const UserSchema = new Schema({
 });
 
 /* hashing password mechanism.
+// idea taken from: https://www.mongodb.com/blog/post/password-authentication-with-mongoose-part-1
 UserSchema.pre('save', function(next) {
     const user = this;
     // only hash the password if it has been modified (or is new)
