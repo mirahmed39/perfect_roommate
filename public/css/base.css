@@ -1,3 +1,13 @@
 h1 {
     text-align: center;
 }
+
+/*css for changequestion.hbs*/
+#user-answers {
+    visibility: hidden;
+}
+
+#updateAnswerErrorMessage {
+    display: none;
+    text-align: center;
+}

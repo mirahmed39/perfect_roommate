@@ -1,1 +1,28 @@
-<h1>This is Change Questions page</h1>
+<p class="lead">Don't worry, {{user.firstName}}! It is okay to change answers.</p>
+
+<form method="POST" action="/{{user.username}}/process-changequestion" id="changeQuestionForm" name="changeQuestionForm">
+    {{#each questionnaire as |aQuestion|}}
+        <p class="lead">{{aQuestion.question}}</p>
+
+        <input type="radio" name="question{{@index}}" id="question" class="question{{@index}}" value="1">
+        <label for="question">1</label>
+
+        <input type="radio" name="question{{@index}}" id="question" class="question{{@index}}" value="2">
+        <label for="question">2</label>
+
+        <input type="radio" name="question{{@index}}" id="question" class="question{{@index}}" value="3">
+        <label for="question">3</label>
+
+        <input type="radio" name="question{{@index}}" id="question" class="question{{@index}}" value="4">
+        <label for="question">4</label>
+
+        <input type="radio" name="question{{@index}}" id="question" class="question{{@index}}" value="5">
+        <label for="question">5</label>
+
+    {{/each}}
+    <br>
+    <button type="submit" id="update-answer-button" class="btn btn-info">Update Answers</button>
+</form>
+
+<p id="user-answers">{{userResponses}}</p>
+<div class="errormessage alert alert-danger" id="updateAnswerErrorMessage"></div>
