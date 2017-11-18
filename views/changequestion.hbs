@@ -1,5 +1,6 @@
 <p class="lead">Don't worry, {{user.firstName}}! It is okay to change answers.</p>
 
+<div class="errormessage alert alert-danger" id="updateAnswerErrorMessage"></div>
 <form method="POST" action="/{{user.username}}/process-changequestion" id="changeQuestionForm" name="changeQuestionForm">
     {{#each questionnaire as |aQuestion|}}
         <p class="lead">{{aQuestion.question}}</p>
@@ -21,8 +22,8 @@
 
     {{/each}}
     <br>
-    <button type="submit" id="update-answer-button" class="btn btn-info">Update Answers</button>
+    <input type="submit" id="update-answer-button" class="btn btn-info" value="Update Answers">
 </form>
 
 <p id="user-answers">{{userResponses}}</p>
-<div class="errormessage alert alert-danger" id="updateAnswerErrorMessage"></div>
+

@@ -50,7 +50,6 @@ router.post('/:username/process-changequestion',function (req, res) {
         if(err) throw err;
         else {
             const redirectUrlFormat = '/' + username + '/profile';
-            console.log("updated answers", req.body);
             res.redirect(redirectUrlFormat);
         }
     });
