@@ -28,21 +28,10 @@ updateButton.addEventListener('click', function (event) {
     $("#changeQuestionForm :input").change(function() {
         $(this).closest('#changeQuestionForm').data('changed',true);
     });
-    /*
     if(!($("#changeQuestionForm").data('changed'))) {
         console.log("here");
         event.preventDefault();
         $("#updateAnswerErrorMessage").text("You have not changed any answers! Please select the radio " +
             "button(s) to change you answer(s)").css({"display":"block"});
-    } else
-        console.log("you changed form data");*/
-    $('#update-answer-button').click(function () {
-        if($(this).closest("#changeQuestionForm").data('changed')) {
-            // do nothing... server will take care of it.
-        } else {
-            event.preventDefault();
-            $("#updateAnswerErrorMessage").text("You have not changed any answers! Please select the radio " +
-                "button(s) to change you answer(s)").css({"display":"block"});
-        }
-    });
+    }
 });
