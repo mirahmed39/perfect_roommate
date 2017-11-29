@@ -1,5 +1,6 @@
 // db.js
 const mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
 const Schema = mongoose.Schema;
 const URLSlugs = require('mongoose-url-slugs');
 const bcrypt = require('bcryptjs');
@@ -48,6 +49,7 @@ const QuestionnaireSchema = new Schema({
 const UserDetailsSchema = new Schema({
     username: {type: String, required:true},
     answers: [Number],
+    description: String,
     rank: Number
 });
 // url slug plugin.
@@ -76,7 +78,7 @@ if (process.env.NODE_ENV === 'PRODUCTION') {
     const data = fs.readFileSync(fn);
 
     // our configuration file will be in json, so parse it and set the
-    // conenction string appropriately!
+    // connection string appropriately!
     const conf = JSON.parse(data);
     dbconf = conf.dbconf;
 } else {
@@ -85,4 +87,4 @@ if (process.env.NODE_ENV === 'PRODUCTION') {
 }
 
 //connecting to the database.
-mongoose.connect(dbconf);
+mongoose.connect(dbconf, {useMongoClient: true});

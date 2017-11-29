@@ -1,14 +1,45 @@
 <h1>Profile</h1>
-
 <!-- later on there should be a profile picture of the user-->
 <div class="container jumbotron">
+    <img src="/images/{{pictureSrc}}" class="img-fluid img-thumbnail profile-picture">
+    <form method="POST" enctype="multipart/form-data" action="/{{user.username}}/upload-picture">
+        <input type="file" name="{{user.username}}"><br><br>
+        <input type="submit" class="btn btn-danger" name="uploadPicture" value="Upload Picture">
+    </form>
     <p class="lead">{{user.firstName}} {{user.lastName}}</p>
     <p class="lead">username: {{user.username}}</p>
     <p class="lead">Gender: {{user.gender}}</p>
+
+    {{#if userDescription}}
+        <p class="lead">About Yourself</p>
+        <blockquote class="blockquote">
+            <p class="mb-0">{{userDescription}}</p>
+        </blockquote>
+    {{/if}}
+    <form method="GET" action="/{{user.username}}/matches">
+        <button type="submit" class="btn btn-lg btn-warning">See My Matches</button>
+    </form>
 </div>
 
-<p class="lead">These are your responses to the questionnaires:</p>
+
 <div class="container jumbotron">
+    {{#if userDescription}}
+        <p class="lead">Wanna Change Your Description? Go Right Ahead!</p>
+        <form method="POST" action="/{{user.username}}/add-description">
+            <textarea placeholder="Something about yourself" rows="6" cols="60" name="description"></textarea> <br>
+            <input type="submit" class="btn btn-danger" value="I am feeling Even Luckier now!">
+        </form>
+    {{else}}
+        <p class="lead">Better Luck If you add something about yourself.</p>
+        <form method="POST" action="/{{user.username}}/add-description">
+            <textarea placeholder="Something about yourself" rows="6" cols="60" name="description"></textarea> <br>
+            <input type="submit" class="btn btn-danger" value="I am feeling Lucky now">
+        </form>
+    {{/if}}
+</div>
+
+<div class="container jumbotron">
+    <p class="lead">These are your responses to the questionnaires:</p>
     <p class="lead">Questions you were asked.</p>
     <ol>
         <!-- loop through each questions and the the users answer-->
@@ -24,7 +55,5 @@
         {{/each}}
     </ol>
     <p class="lead">Wanna Change Your answers?</p>
-    <button class="btn btn-success"><a href="/{{user.username}}/changequestion">Yes, please</a></button>
+    <button class="btn btn-danger"><a href="/{{user.username}}/changequestion">Yes, please</a></button>
 </div>
-
-

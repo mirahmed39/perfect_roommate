@@ -32,4 +32,9 @@ router.post('/:username/process-questionnaire', function (req, res) {
     });
 });
 
+// after you get a rank from a user then use it to find all other user details documents
+// and store it into an array. then set the array into the user's property called matches.
+
+
+
 module.exports = router;

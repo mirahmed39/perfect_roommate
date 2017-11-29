@@ -1,0 +1,14 @@
+<h1>These are your matches</h1>
+<button class="btn btn-danger"><a href="/{{thisUser}}/profile">Back to Profile</a></button>
+<hr>
+{{#each users as |user|}}
+    <div class="card card-inverse" style="background-color: #333; border-color: #333;">
+        <img class="card-img-top" src="/images/{{user.username}}.jpg" alt="Card image cap">
+        <div class="card-block">
+            <h4 class="card-title">{{user.username}}</h4>
+            <p class="card-text">{{user.description}}</p>
+        </div>
+    </div>
+{{/each}}
+<hr>
+<button class="btn btn-danger"><a href="/{{thisUser}}/profile">Back to Profile</a></button>
