@@ -10,6 +10,7 @@ const Questionnaire = require('../db').Questionnaire;
 
 // multer configuration
 const storageDest = path.resolve(__dirname, '../public/images');
+console.log(storageDest);
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, storageDest);

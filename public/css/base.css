@@ -36,7 +36,6 @@ a {
     width:16em;
     height:12rem;
 }
-
-.card-title, .card-text{
-    color: white;
+.card-text {
+    padding: 5px;
 }
