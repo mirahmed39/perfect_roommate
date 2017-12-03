@@ -1,6 +1,6 @@
 <p class="lead gen-page-title">Don't worry, {{user.firstName}}! It is okay to change answers.</p>
 
-<div class="errormessage alert" id="updateAnswerErrorMessage"></div>
+<div class="errormessage alert alert-danger" id="updateAnswerErrorMessage"></div>
 <form method="POST" action="/{{user.username}}/process-changequestion" id="changeQuestionForm" name="changeQuestionForm" class="jumbotron container form-style questionnaire-container">
     {{#each questionnaire as |aQuestion|}}
         <p class="lead questionnaire-question">{{aQuestion.question}}</p>

@@ -23,19 +23,30 @@ button. The handler simply checks if the user actually changed his/her previous
 asnwers. If the user does not change anything then it will not submit the form and
 will notify the user.
  */
-const updateButton = document.querySelector('#update-answer-button');
+function radioButtonChanged() {
+    // do some cool stuff here.
+    let changed = false;
+    for(let i = 0; i < userAnswers.length; i++) {
+        const classNameFormat = "question" + i;
+        const answerInString = userAnswers[i] + "";
+        let format = "input[name=" +classNameFormat+ "]:checked";
+        const checkedValue = document.querySelector(format).value;
+        if(answerInString !== checkedValue) {
+            changed = true;
+            return changed;
+        }
+    }
+    return changed;
+}
 
+const updateButton = document.querySelector('#update-answer-button');
 updateButton.addEventListener('click', function (event) {
-    $("#changeQuestionForm :input").change(function() {
-        $("#changeQuestionForm").data('changed',true);
-    });
-    if(!($("#changeQuestionForm").data('changed'))) {
+    if(!radioButtonChanged()) {
         event.preventDefault();
         $("#updateAnswerErrorMessage").text("You have not changed any answers! Please select the radio " +
             "button(s) to change you answer(s)").css({"display":"block"});
+    } else {
+        $("#updateAnswerErrorMessage").css({"display":"none"});
     }
 });
 
-/*
-loop through the inputs
- */

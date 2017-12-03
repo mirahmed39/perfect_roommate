@@ -10,8 +10,13 @@ router.get('/login', function (req, res) {
 
 router.post('/process-login', function (req, res) {
     const username = req.body.userName;
+    console.log('username', username);
     User.findOne({username: username}, function(err, user) {
-        if (err) throw err;
+        if (err) {
+            console.log('could not find user');
+            const errorMessage = "Could not find username!";
+            res.render('login', {errorMessage: errorMessage});
+        }
         else {
             const redirectUrlFormat = '/' + user.username + '/profile';
             res.redirect(redirectUrlFormat);

@@ -11,15 +11,16 @@ router.get('/:username/questionnaire', function (req, res) {
 });
 
 router.post('/:username/process-questionnaire', function (req, res) {
-    const userResponses = [];
     /*
         create a user details object, add the responses to the
         answers array, add the user slug and then calculate the rank
         and add it
     */
     const userDetail = new UserDetails({username: req.params.username});
+    let userResponses = Object.keys(req.body).map(function (ele) {
+        return parseInt(req.body[ele]);
+    });
     Object.keys(req.body).forEach(function (ele) {
-        userResponses.push(parseInt(req.body[ele]));
         userDetail.answers.push(parseInt(req.body[ele]));
     });
     userDetail.rank = userResponses.reduce(function (accumulator, currentValue) {

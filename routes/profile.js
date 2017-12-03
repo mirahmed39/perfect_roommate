@@ -10,7 +10,6 @@ const Questionnaire = require('../db').Questionnaire;
 
 // multer configuration
 const storageDest = path.resolve(__dirname, '../public/images');
-console.log(storageDest);
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, storageDest);
@@ -54,7 +53,6 @@ router.post('/:username/upload-picture', function (req, res) {
         storage: storage
     }).single(username);
     upload(req, res, function(err) {
-        console.log(req.body);
         res.redirect(redirectUrlFormat);
     });
 });

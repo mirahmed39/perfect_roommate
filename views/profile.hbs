@@ -29,17 +29,18 @@
 
 
 <div class="container jumbotron form-style profile-description-container">
+    <div class="errormessage alert alert-danger" id="updateTextAreaErrorMessage"></div>
     {{#if userDescription}}
         <p class="lead">Wanna Change Your Description? Go Right Ahead!</p>
         <form method="POST" action="/{{user.username}}/add-description">
-            <textarea placeholder="Something about yourself" rows="6" cols="60"  maxlength="250" name="description"></textarea> <br>
-            <input type="submit" class="btn btn-danger gen-button" value="I am feeling Even Luckier now!">
+            <textarea placeholder="Something about yourself" rows="6" cols="60" class="profile-desc" maxlength="250" name="description"></textarea> <br>
+            <input type="submit" class="btn btn-danger gen-button update-profile-desc-btn" value="I am feeling Even Luckier now!">
         </form>
     {{else}}
         <p class="lead">Better Luck If you add something about yourself.</p>
         <form method="POST" action="/{{user.username}}/add-description">
-            <textarea placeholder="Something about yourself" rows="6" cols="60" name="description"></textarea> <br>
-            <input type="submit" class="btn btn-danger gen-button" value="I am feeling Lucky now">
+            <textarea placeholder="Something about yourself" class="profile-desc" rows="6" cols="60" name="description"></textarea> <br>
+            <input type="submit" class="btn btn-danger gen-button update-profile-desc-btn" value="I am feeling Lucky now">
         </form>
     {{/if}}
 </div>

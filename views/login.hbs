@@ -1,5 +1,7 @@
 <p class="lead gen-page-title">Please type in your username</p>
-
+{{#if errorMessage}}
+    <div class="alert alert-danger">{{errorMessage}}</div>
+{{/if}}
 <form method="POST" action="/process-login" class="login-form container jumbotron">
     <div class="form-group">
         <label for="userName">User Name</label>

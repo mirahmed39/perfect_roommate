@@ -26,13 +26,10 @@ router.get('/:username/matches', function (req, res) {
             if (err) throw err;
             else {
                 // exclude the current user from the users list so that it does not get displayed in matches.
-                for(let user of users) {
-                    if(user.username === username) {
-                        const index = users.indexOf(user);
-                        users.splice(index,1);
-                    }
-                }
-                res.render('matches', {users: users, thisUser: username});
+                let filteredUsers = users.filter(function (user) {
+                    return user.username !== username;
+                });
+                res.render('matches', {users: filteredUsers, thisUser: username});
             }
         });
     });
