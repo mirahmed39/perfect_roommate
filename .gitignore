@@ -3,3 +3,4 @@ node_modules/
 package-lock.json
 courant-server-creds.txt
 config.json
+public/images/
