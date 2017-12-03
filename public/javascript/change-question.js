@@ -35,3 +35,7 @@ updateButton.addEventListener('click', function (event) {
             "button(s) to change you answer(s)").css({"display":"block"});
     }
 });
+
+/*
+loop through the inputs
+ */

@@ -1,59 +1,70 @@
-<h1>Profile</h1>
+<h1 class="gen-page-title">Profile</h1>
 <!-- later on there should be a profile picture of the user-->
-<div class="container jumbotron">
-    <img src="/images/{{pictureSrc}}" class="img-fluid img-thumbnail profile-picture">
-    <form method="POST" enctype="multipart/form-data" action="/{{user.username}}/upload-picture">
-        <input type="file" name="{{user.username}}"><br><br>
-        <input type="submit" class="btn btn-danger" name="uploadPicture" value="Upload Picture">
+<div class="container jumbotron form-style profile-container">
+    <div class="pro-pic-container">
+        <img src="/images/{{pictureSrc}}" class="img-fluid img-thumbnail profile-picture">
+    </div>
+    <hr>
+    <form method="POST" enctype="multipart/form-data" action="/{{user.username}}/upload-picture" class="upload-container">
+        <input type="file" name="{{user.username}}">
+        <input type="submit" class="btn btn-danger gen-button" name="uploadPicture" value="Upload Picture">
     </form>
-    <p class="lead">{{user.firstName}} {{user.lastName}}</p>
-    <p class="lead">username: {{user.username}}</p>
-    <p class="lead">Gender: {{user.gender}}</p>
+    <hr>
+    <div class="profile-detail-container">
+        <p class="lead">{{user.firstName}} {{user.lastName}}</p>
+        <p class="lead">username: {{user.username}}</p>
+        <p class="lead">Gender: {{user.gender}}</p>
 
-    {{#if userDescription}}
-        <p class="lead">About Yourself</p>
-        <blockquote class="blockquote">
-            <p class="mb-0">{{userDescription}}</p>
-        </blockquote>
-    {{/if}}
-    <form method="GET" action="/{{user.username}}/matches">
-        <button type="submit" class="btn btn-lg btn-warning">See My Matches</button>
-    </form>
+        {{#if userDescription}}
+            <p class="lead about-yourself-title">About Yourself</p>
+            <blockquote class="blockquote">
+                <p class="mb-0">{{userDescription}}</p>
+            </blockquote>
+        {{/if}}
+        <form method="GET" action="/{{user.username}}/matches">
+            <button type="submit" class="btn btn-lg btn-warning btn-blockgen-button">See My Matches</button>
+        </form>
+    </div>
 </div>
 
 
-<div class="container jumbotron">
+<div class="container jumbotron form-style profile-description-container">
     {{#if userDescription}}
         <p class="lead">Wanna Change Your Description? Go Right Ahead!</p>
         <form method="POST" action="/{{user.username}}/add-description">
-            <textarea placeholder="Something about yourself" rows="6" cols="60" name="description"></textarea> <br>
-            <input type="submit" class="btn btn-danger" value="I am feeling Even Luckier now!">
+            <textarea placeholder="Something about yourself" rows="6" cols="60"  maxlength="250" name="description"></textarea> <br>
+            <input type="submit" class="btn btn-danger gen-button" value="I am feeling Even Luckier now!">
         </form>
     {{else}}
         <p class="lead">Better Luck If you add something about yourself.</p>
         <form method="POST" action="/{{user.username}}/add-description">
             <textarea placeholder="Something about yourself" rows="6" cols="60" name="description"></textarea> <br>
-            <input type="submit" class="btn btn-danger" value="I am feeling Lucky now">
+            <input type="submit" class="btn btn-danger gen-button" value="I am feeling Lucky now">
         </form>
     {{/if}}
 </div>
 
-<div class="container jumbotron">
-    <p class="lead">These are your responses to the questionnaires:</p>
-    <p class="lead">Questions you were asked.</p>
+<div class="container jumbotron form-style questions-in-profile-container">
+    <p class="lead gen-page-title profile-questions-headers">These are your responses to the questionnaires:</p>
+    <p class="lead gen-page-title profile-questions-headers">Questions you were asked.</p>
     <ol>
         <!-- loop through each questions and the the users answer-->
         {{#each questionnaire as |aQuestion|}}
-            <li class="lead">{{aQuestion.question}}</li>
+            <li class="lead questionnaire-question">{{aQuestion.question}}</li>
         {{/each}}
     </ol>
 
-    <p class="lead">These are your answers.</p>
+    <hr>
+
+    <p class="lead gen-page-title profile-questions-headers">These are your answers.</p>
     <ol>
         {{#each userResponses as |aResponse|}}
             <li class="lead"> You answered: <b>{{aResponse}}</b></li>
         {{/each}}
     </ol>
-    <p class="lead">Wanna Change Your answers?</p>
-    <button class="btn btn-danger"><a href="/{{user.username}}/changequestion">Yes, please</a></button>
+
+    <hr>
+
+    <p class="lead profile-questions-headers">Wanna Change Your answers?</p>
+    <button class="btn btn-danger link-button gen-button"><a href="/{{user.username}}/changequestion">Yes, please</a></button>
 </div>

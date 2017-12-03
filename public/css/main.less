@@ -1,0 +1,167 @@
+@app-name-font-family: 'Pacifico', cursive;
+@button-font-family: 'Berkshire Swash', cursive;
+@gen-page-title-font-family: 'Cormorant Garamond', serif;
+@questionnaire-question-font-family: 'Neucha', cursive;
+@matches-description-font-family: 'Cormorant Garamond', serif;
+@page-title-color: azure;
+@gen-button-color: azure;
+
+.gen-page-title {
+  text-align: center;
+  color: @page-title-color;
+  font-family: @gen-page-title-font-family;
+  font-size: 2em;
+}
+.button-style {
+  font-family: @button-font-family;
+  text-decoration: none;
+  color: @gen-button-color;
+  font-size: 1.3em;
+}
+body {
+  background: url("../images/application-pictures/register-form-background.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+}
+// style for register page
+.form-style {
+  background-color: #ffffff;
+  opacity: 0.9;
+  max-width: 40em;
+  min-width: 20em;
+}
+
+#app-name {
+  font-family: @app-name-font-family;
+  text-align: center;
+  font-size: 3em;
+  color: azure;
+  margin-bottom: 10px;
+}
+
+.register-form {
+  .form-style;
+}
+
+.gen-button {
+  .button-style;
+}
+
+.link-button {
+  .button-style;
+  a {
+    text-decoration: none;
+    color: @gen-button-color;
+  }
+}
+
+.login-and-register-button-container {
+  text-align: center;
+}
+
+// style for login.hbs
+.login-form {
+  .form-style;
+  text-align: center;
+  input {
+    text-align: center;
+  }
+}
+
+// style for questionnaire.hbs
+.questionnaire-container {
+  .form-style;
+  text-align: center;
+}
+
+.questionnaire-question {
+  font-family: @questionnaire-question-font-family;
+  font-size: 1.5em;
+}
+
+// style for profile.hbs
+.pro-pic-container {
+  text-align: center;
+  img {
+    width: 15em;
+    height: 15em;
+    border-radius: 50%;
+    text-align: center;
+  }
+}
+
+.upload-container {
+  text-align: center;
+  input {
+    display: inline-block;
+  }
+}
+
+.profile-detail-container {
+  text-align: center;
+  .about-yourself-title {
+    .gen-page-title;
+    color: black;
+  }
+}
+
+.profile-description-container {
+  text-align: center;
+}
+
+.questions-in-profile-container {
+  text-align: center;
+  ol{
+    list-style: decimal inside none;
+  }
+}
+
+.profile-questions-headers {
+  .gen-page-title;
+  color: black;
+}
+
+// style for changequestion.hbs
+.errormessage {
+  color: red;
+  background: white;
+  text-align: center;
+}
+
+//style for matches.hbs
+.match-page-title {
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+.match {
+  padding: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid limegreen;
+  border-radius: 5px;
+  .match-image {
+    text-align: center;
+    img {
+      width: 10em;
+      height: 10em;
+      border-radius: 50%;
+    }
+  }
+  .match-description {
+    background: white;
+    opacity: 0.9;
+    padding: 5px;
+    border-radius: 15px 50px;
+    p {
+      text-align: left;
+      color: black;
+      font-family: @matches-description-font-family;
+      font-size: 1.3em;
+    }
+  }
+}
+
+
+.end-matches-button {
+  text-align: center;
+}
+

@@ -1,14 +1,23 @@
-<h1>These are your matches</h1>
-<button class="btn btn-danger"><a href="/{{thisUser}}/profile">Back to Profile</a></button>
-<hr>
-{{#each users as |user|}}
-    <div class="card">
-        <img class="card-img-top" src="/images/{{user.username}}.jpg" alt="Card image cap">
-        <div class="card-block">
-            <h4 class="card-title">{{user.username}}</h4>
-            <p class="card-text">{{user.description}}</p>
+{{#if users}}
+    <div class="match-page-title"><h1 class="gen-page-title">Look! Here are your Matches.</h1></div>
+    {{#each users as |user|}}
+        <div class="match row">
+            <div class="col-md-3"></div>
+            <div class="col-md-3 match-image"><img class="img-fluid img-thumbnail" src="/images/{{user.username}}.jpg" alt="A picture"></div>
+            <div class="col-md-3 match-description">
+                <p>{{user.username}}</p>
+                <p>{{user.description}}</p>
+            </div>
+            <div class="col-md-3"></div>
         </div>
+        <hr class="matches-hr">
+    {{/each}}
+{{else}}
+    <div>
+        <p class="gen-page-title">Oops! We haven't found any matches for you yet 😞. Hopefully you will find
+        someone at a later time. So, please check back.</p>
     </div>
-{{/each}}
+{{/if}}
 <hr>
-<button class="btn btn-danger"><a href="/{{thisUser}}/profile">Back to Profile</a></button>
+<div class="end-matches-button"><button class="btn btn-success gen-button link-button"><a href="/{{thisUser}}/profile">Back to Profile</a></button></div>
+<br><br>

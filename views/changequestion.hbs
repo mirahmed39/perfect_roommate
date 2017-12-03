@@ -1,9 +1,9 @@
-<p class="lead">Don't worry, {{user.firstName}}! It is okay to change answers.</p>
+<p class="lead gen-page-title">Don't worry, {{user.firstName}}! It is okay to change answers.</p>
 
-<div class="errormessage alert alert-danger" id="updateAnswerErrorMessage"></div>
-<form method="POST" action="/{{user.username}}/process-changequestion" id="changeQuestionForm" name="changeQuestionForm">
+<div class="errormessage alert" id="updateAnswerErrorMessage"></div>
+<form method="POST" action="/{{user.username}}/process-changequestion" id="changeQuestionForm" name="changeQuestionForm" class="jumbotron container form-style questionnaire-container">
     {{#each questionnaire as |aQuestion|}}
-        <p class="lead">{{aQuestion.question}}</p>
+        <p class="lead questionnaire-question">{{aQuestion.question}}</p>
 
         <input type="radio" name="question{{@index}}" id="question" class="question{{@index}}" value="1">
         <label for="question">1</label>
@@ -22,9 +22,9 @@
 
     {{/each}}
     <br>
-    <input type="submit" id="update-answer-button" class="btn btn-info" value="Update Answers">
+    <input type="submit" id="update-answer-button" class="btn btn-danger gen-button" value="Update Answers">
 </form>
 
 <p id="user-answers">{{userResponses}}</p>
-<button class="btn btn-danger"><a href="/{{user.username}}/profile">Back to Profile</a></button>
-
+<button class="btn btn-success btn-block link-button gen-button"><a href="/{{user.username}}/profile">Back to Profile</a></button>
+<br><br>

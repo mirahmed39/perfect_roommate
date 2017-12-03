@@ -1,12 +1,11 @@
-<h1>This is Questionnaires page</h1>
-<p class="lead">Answer the questions in a scale rate of 1 to 5: 1 being
+<p class="lead gen-page-title">Answer the questions in a scale rate of 1 to 5: 1 being
 "Strongly Disagree" and 5 being "You Strongly agree".
 </p>
-<h3>Questionnaire for {{username}}</h3>
+<p class="gen-page-title">Questionnaire for {{username}}</p>
 
-<form method="POST" action="/{{username}}/process-questionnaire">
+<form method="POST" action="/{{username}}/process-questionnaire" class="container jumbotron questionnaire-container">
     {{#each questionnaire as |aQuestion|}}
-        <p class="lead">{{aQuestion.question}}</p>
+        <p class="lead questionnaire-question">{{aQuestion.question}}</p>
 
         <input type="radio" name="question{{@index}}" id="question" value="1">
         <label for="question">1</label>
@@ -22,7 +21,8 @@
 
         <input type="radio" name="question{{@index}}" id="question" value="5">
         <label for="question">5</label>
+        <hr>
     {{/each}}
     <br>
-    <button type="submit" class="btn btn-info">Submit Responses</button>
+    <button type="submit" class="btn btn-success gen-button">Submit Responses</button>
 </form>
