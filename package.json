@@ -24,7 +24,8 @@
     "file-exists": "^5.0.0",
     "hbs": "^4.0.1",
     "jquery": "^3.2.1",
-    "mongoose": "^4.13.0"
+    "mongoose": "^4.13.0",
+    "typed.js": "^2.0.6"
   },
   "devDependencies": {
     "bcryptjs": "^2.4.3",
