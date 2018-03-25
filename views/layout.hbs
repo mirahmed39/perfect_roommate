@@ -9,11 +9,23 @@
 
 <body>
 <div class="container">
-    <header id="app-name">Perfect Roommate</header>
+    <header id="app-name" class="write"></header>
     {{{body}}}
 </div>
 <script type="text/javascript" src="/javascript/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="/javascript/change-question.js"></script>
+<script type="text/javascript" src="https://cdn.bootcss.com/typed.js/1.1.4/typed.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $(".write").typed({
+            strings: ["Perfect Roommate..."],
+            typeSpeed: 30,
+            startDelay: 500,
+            backDelay: 300,
+            loop: false,
+        });
+    });
+</script>
 </body>
 
 </html>
